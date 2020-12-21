@@ -1,8 +1,10 @@
 <template>
   <div id="mostrar_temp">
-       <div style="text-align:center;">
-      <h2>Festividades del año</h2>
-      <table border="1" style="margin: 0 auto;">
+       <div style="text-align:left;">
+      
+      
+      <table border="1" style="margin: 0 auto;" >
+        <h2>Festividades del año</h2>
        <tr>
         <th>Fecha Inicio</th>
         <th>Fecha Fin</th>
@@ -17,6 +19,9 @@
       </tr>
 
       </table>
+
+      <img id="imagen1" src="../assets/Fiestas-anual.gif" height="700">
+
     </div>  
   </div>
 </template>
@@ -27,6 +32,7 @@ export default {
   data() {
     return {
       temporadas:[]
+    
     };
   },
   methods: {
@@ -46,5 +52,10 @@ export default {
 };
 </script>
 <style>
+
+
+table{
+  float: left;
+}
 
 </style>

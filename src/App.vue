@@ -1,22 +1,26 @@
 <template>
   <div id="app">
     <div class="header" id="header">
-      <h1 id="titulo_principal"  v-on:click = "irInicio"> HOTEL SEASON <br> 2020 </h1>
+     
+      <img src="./assets/1.png" v-on:click = "irInicio" width="300" height="300">
       <nav>
         <button v-on:click = "VerTemp" > Ver Temporadas </button>
-        <button  > Buscar </button>
+        <button  v-on:click = "Buscar"> Buscar </button>
         <button v-on:click = "crearTemp"> Crear </button>
+        <br> <br>
       </nav>
     </div>
     <div class="main-component" id="main">
      <router-view/>
     </div>
     <div class="footer" id="footer"> 
-      <h2>Misión TIC 2022</h2>
-      <H5>Datos de contacto: <br>
+      <div id="info">
+      <h2 >Misión TIC 2022</h2>
+      <H5 >Datos de contacto: <br>
       Mail: misiontic2020@mail.com <br>
       Tel: (+57) 031-5555
       </H5>
+      </div>
     </div>
   </div>
 </template>
@@ -47,6 +51,11 @@ VerTemp: function(){
 if(this.$route.name != "mostrar"){
 this.$router.push({ name: "mostrar"});
 }
+},
+Buscar: function(){
+if(this.$route.name != "buscar"){
+this.$router.push({ name: "buscar"});
+}
 }
 },
      
@@ -65,11 +74,12 @@ this.$router.push({ name: "mostrar"});
   justify-items: center;
 }
 #header{
-  background-color: rgb(100, 93, 93);
+  background-color:black;
 
 }
 #footer{
-  background-color: rgb(100, 93, 93);
+  background-color:black;
+  
 }
 nav{
   text-align: right;
@@ -82,4 +92,9 @@ justify-content: center;
 #titulo_principal{
   padding-top: 20px;
 }
+
+#info{
+color: white;
+}
+
 </style>

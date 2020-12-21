@@ -2,6 +2,7 @@ import vueRouter from 'vue-router'
 import Crear from './components/Crear'
 import Presentacion from './components/Presentacion'
 import Mostrar from './components/Mostrar'
+import Buscar from './components/Buscar'
 import App from './App'
 const router = new vueRouter({
     mode: 'history',
@@ -23,6 +24,11 @@ const router = new vueRouter({
             component: Mostrar
         },
         
+        {
+            path: '/buscar',
+            name: "buscar",
+            component: Buscar
+        },
     ]
 })
 export default router
