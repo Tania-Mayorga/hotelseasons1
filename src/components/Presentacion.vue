@@ -1,7 +1,7 @@
 <template>
 
 <div id="Presentacion">
-  <img src="../assets/2.png" width="350" height="350">
+  <img src="../assets/Bienvenido.gif"  height="600">
 
 </div>
 </template>
@@ -17,7 +17,7 @@ export default {
 </script>
 <style>
 #Presentacion{
-  padding: 3%;
+  padding: 1%;
   text-align: center;
 }
 </style>

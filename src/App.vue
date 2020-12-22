@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <div class="header" id="header">
-     
-      <img src="./assets/1.png" v-on:click = "irInicio" width="300" height="300">
+      <img src="./assets/2.png" v-on:click = "irInicio"  height="200">
+      
       <nav>
         <button v-on:click = "VerTemp" > Ver Temporadas </button>
         <button  v-on:click = "Buscar"> Buscar </button>
         <button v-on:click = "crearTemp"> Crear </button>
+        <button v-on:click = "CrearSucursal"> Crear Sucursal </button>
         <br> <br>
       </nav>
     </div>
@@ -56,6 +57,11 @@ Buscar: function(){
 if(this.$route.name != "buscar"){
 this.$router.push({ name: "buscar"});
 }
+},
+CrearSucursal: function(){
+if(this.$route.name != "crearsucursal"){
+this.$router.push({ name: "crearsucursal"});
+}
 }
 },
      
@@ -74,11 +80,11 @@ this.$router.push({ name: "buscar"});
   justify-items: center;
 }
 #header{
-  background-color:black;
+  background-color:rgb(83,83,83);
 
 }
 #footer{
-  background-color:black;
+  background-color:rgb(83,83,83);
   
 }
 nav{

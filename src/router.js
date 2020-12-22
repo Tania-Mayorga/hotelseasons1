@@ -3,6 +3,7 @@ import Crear from './components/Crear'
 import Presentacion from './components/Presentacion'
 import Mostrar from './components/Mostrar'
 import Buscar from './components/Buscar'
+import CrearSucursal from './components/CrearSucursal'
 import App from './App'
 const router = new vueRouter({
     mode: 'history',
@@ -28,6 +29,12 @@ const router = new vueRouter({
             path: '/buscar',
             name: "buscar",
             component: Buscar
+        },
+
+        {
+            path: '/sucursal/crear',
+            name: "crearsucursal",
+            component: CrearSucursal
         },
     ]
 })
