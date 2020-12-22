@@ -5,9 +5,9 @@
       
       <nav>
         <button v-on:click = "VerTemp" > Ver Temporadas </button>
-        <button  v-on:click = "Buscar"> Buscar </button>
-        <button v-on:click = "crearTemp"> Crear </button>
-        <button v-on:click = "CrearSucursal"> Crear Sucursal </button>
+        <button  v-on:click = "Buscar"> Buscar por Ciudad</button>
+        <button v-on:click = "crearTemp"> Crear Temporada </button>
+        <button v-on:click = "CrearSucursal"> Cotizar Habitación </button>
         <br> <br>
       </nav>
     </div>

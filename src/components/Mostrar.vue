@@ -10,12 +10,14 @@
         <th>Fecha Fin</th>
         <th>Ciudad</th>
         <th>Fiesta</th>
+        <th>Temporada</th>
       </tr>
       <tr v-for="Fiesta in temporadas">
         <td>{{ Fiesta.fecha_inicio	 }}</td>
         <td>{{ Fiesta.fecha_fin	 }}</td>
         <td>{{ Fiesta.ciudad }}</td>
         <td>{{ Fiesta.fiesta }}</td>
+        <td>{{ Fiesta.tipo_temp }}</td>
       </tr>
 
       </table>
@@ -40,7 +42,7 @@ export default {
   },
     beforeCreate: function() {
     axios
-      .get("https://backend-hotelseason.herokuapp.com/Temporada/")
+      .get("https://api-hotel-season.herokuapp.com/Temporada/?ciudad=")
       .then(respuesta => {
         this.temporadas = respuesta.data;
       })

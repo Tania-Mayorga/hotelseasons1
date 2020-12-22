@@ -12,6 +12,9 @@
       <br />
       <label>Nombre Festividad:</label>
       <input v-model="Fiesta" />
+      <br />
+      <label>Temporada:</label>
+      <input v-model="tipoTemp" />
       <br>
     </form>
     <br>
@@ -26,17 +29,24 @@ export default {
   data() {
     return {
       mensaje: " ",
-    };
+      Fiesta:[],
+      tipoTemp:'',
+      Ciudad:'',
+      FechaFin:'',
+      FechaIni:'',
+
+          };
   },
   methods: {
     crearTemp2: function () {
  
-axios.post('https://backend-hotelseason.herokuapp.com/Temporada/crear/', {
+axios.post('https://api-hotel-season.herokuapp.com/Temporada/Crear/', {
 
   fecha_inicio: this.FechaIni,
   fecha_fin: this.FechaFin,
   ciudad: this.Ciudad,
-  fiesta: this.Fiesta
+  fiesta: this.Fiesta,
+  tipo_temp:this.tipoTemp
 })
 .then((response) => {
   console.log(response);

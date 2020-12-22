@@ -1,75 +1,51 @@
 <template>
- <div>
+ <div id="consultarSucursal">
         <h1>Buscar Sucursal</h1>
-        <form @submit="ConsultarSucursal"> 
-            <label for="inicial" >Fecha inicio: </label>
-            <input v-model="enviar.inicio_fecha" type="date" name="inicial">
-            <label for="final" >Fecha fin: </label>
-            <input v-model="enviar.final_fecha" type="date" name="final">
-            <label for="busqueda_hotel" >Hotel: </label>
-            <input v-model="enviar.nombre_hotel" type="text" name="busqueda_hotel">
-            <label for="busqueda_city" >Ciudad: </label>
-            <input v-model="enviar.ciudad" type="text" name="busqueda_city">
-            <input type="submit">            
-        </form>
-        <br>        
-        <textarea v-model="recibir"> </textarea>        
         <br>
-        <br>
-        <h1>Crear Sucursal</h1>        
-        <form @submit="CrearSucursal" method="post"> 
-            <label for="inicial" >Fecha inicio: </label>
-            <input v-model="enviar.inicio_fecha" type="date" name="inicial">
-            <label for="final" >Fecha fin: </label>
-            <input v-model="enviar.final_fecha" type="date" name="final">
-            <label for="busqueda_hotel" >Hotel: </label>
-            <input v-model="enviar.nombre_hotel" type="text" name="busqueda_hotel">
-            <label for="busqueda_city" >Ciudad: </label>
-            <input v-model="enviar.ciudad" type="text" name="busqueda_city">
-            <input type="submit">
+        <form action = "Consultar Sucursal"> 
+            <label>Fecha inicio: </label>
+            <input v-model="fechaInicio" type="date" id="fechaIncio"/>
+            <label>Fecha fin: </label>
+            <input v-model="fechaFin" type="date" id="fechaFin"/>
+            <label>Hotel: </label>
+            <input v-model="nombreHotel" type="text" id="nombreHotel"/>
+            <label>Ciudad: </label>
+            <input v-model="ciudad" type="text" id="ciudad"/>           
         </form>
+        <br>    
+        <button v-on:click="ConsultarSucursal">Consultar Sucursal</button>    
+        <P>{{Mensaje}}</P>        
+        <br>
     </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from 'axios';
 export default {
-    name: "Sucursal",
+    name: "consultarSucursal",
     data() {
-        return{
-            enviar: {
-                inicio_fecha: null,
-                final_fecha: null,
-                nombre_hotel: null,
-                ciudad: null,
-            },
-            recibir: null,
-            datosSucursal: {                
-                inicio_fecha: null,
-                final_fecha: null,
-                nombre_hotel: null,
-                ciudad: null,
-            }
-        }
+        return {
+            Mensaje: " ",
+            Fiesta:[],
+            nombreHotel:'',
+            ciudad:'',
+            fechaFin:'',
+            fechaInicio:'',
+        };
     },
     methods: {
         ConsultarSucursal: function() {
-            this.axios.get("https://backend-hotelseason.herokuapp.com/Temporada/CiudadFecha" + this.enviar)
-            .then((result) => {
-                this.recibir = result.data.sucursal_hoteles
-                //{datosSucursal:Este es el texto}
+            axios.post("https://api-hotel-season.herokuapp.com/Hoteles/Sucursales/Consultar", {
+                nombre_hotel: this.nombreHotel,
+                ciudad: this.ciudad,
+                fecha_inicio: this.fechaInicio,
+                fecha_fin: this.fechaFin
             })
-            .catch((err) => {
-                console.log(err);
-            })    
+            .then((response) => {
+                this.Mensaje = response.data.Mensaje;
+            })
         },
-        CrearSucursal: function() {
-            this.axios.post("https://backend-hotelseason.herokuapp.com/Temporada/CiudadFecha", this.datosSucursal)
-            .then((result) => {                
-                console.log(result.data);
-            })
-        }
-    }
-}
+    },
+};
 
 </script>
 <style>
